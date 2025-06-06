@@ -41,7 +41,7 @@ function renderChoices() {
           <button onclick="showNearbyStores('${pool[0].name}')" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">推薦附近餐廳</button>
           <button onclick="location.reload()" class="mt-2 px-4 py-2 bg-gray-300 text-black rounded">重新開始</button>
           <p class="text-sm text-yellow-800 bg-yellow-100 mt-4 p-2 rounded text-center">
-            ⚠ 若無法跳轉 Google 地圖，請點右上角「⋮」或「...」→ 選「用瀏覽器開啟」，點選後以應用程式開啟GoogleMap
+            ⚠ 若無法跳轉 Google 地圖，請點右上角「⋮」或「...」→ 選「用瀏覽器開啟」，位置錯誤時請用應用程式開啟GoogleMap
           </p>
         `;
         return;

@@ -85,12 +85,21 @@ function showNearbyStores(query) {
     return;
   }
 
-  // 把開視窗的動作移到 click 當下，避免手機阻擋
   navigator.geolocation.getCurrentPosition(
     (position) => {
       const { latitude, longitude } = position.coords;
       const url = `https://www.google.com/maps/search/${encodeURIComponent(query)}/@${latitude},${longitude},15z`;
-      window.open(url, '_blank'); // 現在這裡不會被擋
+
+      // 偵測是否為 LINE 或 Messenger 內建瀏覽器
+      const ua = navigator.userAgent.toLowerCase();
+      const isInApp = ua.includes("line") || ua.includes("fbav");
+
+      if (isInApp) {
+        // 用本頁導向（不會被阻擋）
+        location.href = url;
+      } else {
+        window.open(url, '_blank');
+      }
     },
     (error) => {
       alert("取得位置失敗，請允許位置存取。");

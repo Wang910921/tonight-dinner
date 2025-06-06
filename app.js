@@ -78,10 +78,7 @@ function renderChoices() {
 
   choiceDiv.appendChild(grid);
 }
-function showNearbyStores(query) {
-  const url = `https://www.google.com/maps/search/${encodeURIComponent(query)}`;
-  window.open(url, '_blank');
-}
+
 function showNearbyStores(query) {
   if (!navigator.geolocation) {
     alert("無法取得您的位置");

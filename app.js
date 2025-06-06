@@ -34,16 +34,18 @@ function renderChoices() {
       const choiceDiv = document.getElementById("choice");
       choiceDiv.innerHTML = "";
 
-      if (pool.length === 1) {
+if (pool.length === 1) {
   choiceDiv.innerHTML = `
     <h2 class="text-xl font-semibold">今晚就吃：<span class="text-red-500">${pool[0].name}</span>！</h2>
     <img src="${pool[0].image}" alt="${pool[0].name}" class="mx-auto my-4 rounded-xl shadow-lg max-h-60 object-cover">
-    <button onclick="showNearbyStores('${pool[0].name}')" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">推薦附近餐廳</button>
-    <button onclick="location.reload()" class="mt-2 px-4 py-2 bg-gray-300 text-black rounded">重新開始</button>
-    <p class="text-sm text-yellow-800 bg-yellow-100 mt-4 p-2 rounded text-center">
+    
+    <button onclick="showNearbyStores('${pool[0].name}')" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded w-full">推薦附近餐廳</button>
+    <button onclick="location.reload()" class="mt-2 px-4 py-2 bg-gray-300 text-black rounded w-full">重新開始</button>
+    
+    <div class="mt-4 p-3 bg-yellow-100 text-yellow-800 rounded text-sm text-center leading-relaxed">
       ⚠ 若無法跳轉 Google 地圖，請點右上角「⋮」或「...」→ 選「用瀏覽器開啟」<br>
-      📍 若定位不準，請點右上以應用程式開啟 Google 地圖 App 
-    </p>
+      📍 若定位不準，請點右上以應用程式開啟 Google 地圖 App
+    </div>
   `;
   return;
 }

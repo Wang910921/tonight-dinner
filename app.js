@@ -88,13 +88,16 @@ function showNearbyStores(query) {
     return;
   }
 
+  const win = window.open('', '_blank'); // 預先打開新視窗（防止被阻擋）
+
   navigator.geolocation.getCurrentPosition(
     (position) => {
       const { latitude, longitude } = position.coords;
       const url = `https://www.google.com/maps/search/${encodeURIComponent(query)}/@${latitude},${longitude},15z`;
-      window.open(url, '_blank');
+      win.location = url; // 將地圖網址塞進去
     },
     (error) => {
+      win.close(); // 如果定位失敗就關掉空視窗
       alert("取得位置失敗，請允許位置存取。");
     }
   );

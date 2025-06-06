@@ -29,6 +29,27 @@ const dinners = [
 
 let pool = [...dinners].sort(() => Math.random() - 0.5);
 
+function drawRandomDinner() {
+  const choiceDiv = document.getElementById("choice");
+  const randomBtn = document.getElementById("randomBtn");
+  if (randomBtn) randomBtn.style.display = "none"; // 點完隱藏按鈕
+
+  const randomItem = dinners[Math.floor(Math.random() * dinners.length)];
+
+  choiceDiv.innerHTML = `
+    <h2 class="text-xl font-semibold">今晚就吃：<span class="text-red-500">${randomItem.name}</span>！</h2>
+    <img src="${randomItem.image}" alt="${randomItem.name}" class="mx-auto my-4 rounded-xl shadow-lg max-h-60 object-cover">
+    
+    <button onclick="showNearbyStores('${randomItem.name}')" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded w-full">推薦附近餐廳</button>
+    <button onclick="location.reload()" class="mt-2 px-4 py-2 bg-gray-300 text-black rounded w-full">重新開始</button>
+    
+    <div class="mt-4 p-3 bg-yellow-100 text-yellow-800 rounded text-sm text-center leading-relaxed">
+      ⚠ 若無法跳轉 Google 地圖，請點右上角「⋮」或「...」→ 選「用瀏覽器開啟」<br>
+      📍 若定位不準，請點右上以應用程式開啟 Google 地圖 App
+    </div>
+  `;
+}
+
 
 function renderChoices() {
       const choiceDiv = document.getElementById("choice");

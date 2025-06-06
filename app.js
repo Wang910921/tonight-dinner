@@ -82,4 +82,21 @@ function showNearbyStores(query) {
   const url = `https://www.google.com/maps/search/${encodeURIComponent(query)}`;
   window.open(url, '_blank');
 }
+function showNearbyStores(query) {
+  if (!navigator.geolocation) {
+    alert("無法取得您的位置");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const { latitude, longitude } = position.coords;
+      const url = `https://www.google.com/maps/search/${encodeURIComponent(query)}/@${latitude},${longitude},15z`;
+      window.open(url, '_blank');
+    },
+    (error) => {
+      alert("取得位置失敗，請允許位置存取。");
+    }
+  );
+}
 renderChoices();

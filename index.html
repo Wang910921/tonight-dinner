@@ -8,9 +8,13 @@
   <script defer src="app.js"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div id="app" class="text-center p-6 bg-white rounded-2xl shadow-xl max-w-md w-full">
-    <h1 class="text-2xl font-bold mb-4">今晚吃什麼？</h1>
-    <div id="choice" class="space-y-4"></div>
+<div id="app" class="text-center p-6 bg-white rounded-2xl shadow-xl max-w-md w-full">
+<h1 class="text-2xl font-bold mb-4">今晚吃什麼？</h1>
+<button id="randomBtn" onclick="drawRandomDinner()" class="mb-4 px-4 py-2 bg-green-500 text-white rounded w-full animate-bounce hover:scale-105 transition">
+  🎲 隨機抽一個
+</button>
+<div id="choice" class="space-y-4"></div>
+
   </div>
 </body>
 </html>
